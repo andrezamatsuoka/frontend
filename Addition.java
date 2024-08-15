@@ -8,15 +8,18 @@ public class Addition // Cria/exporta/declara a classe (começa com letra maiús
          JOptionPane.showInputDialog("Digite o primeiro número"); //  o componente (JOptionPane) invoca (.) o método (showInputDialog) - o que está entre "texto", será impresso na tela
       String secondNumber =
          JOptionPane.showInputDialog("Digite o segundo número");
+      String thirdNumber =
+         JOptionPane.showInputDialog("Digite o terceiro número");
 
       int number1 = Integer.parseInt(firstNumber); //declaração de variável (tipo, nome), atribui-se valor a ela (=). o método (parseInt - analisa número inteiro) invoca (.) o componente (Integer) que converte o parâmetro ()
       int number2 = Integer.parseInt(secondNumber);
+      int number3 = Integer.parseInt(thirdNumber);
 
-      int sum = number1 + number2; // declaração de variável que vai receber a soma dos números 
+      int sum = number1 + number2 + number3; // declaração de variável que vai receber a soma dos números 
 
       
       JOptionPane.showMessageDialog(null, "A soma dos números é:" + sum, 
-         "Soma de dois inteiros", JOptionPane.PLAIN_MESSAGE); 
+         "Soma de três inteiros", JOptionPane.PLAIN_MESSAGE); 
          // o componente (JOptionPane) invoca (.) o método (showInputDialog). 
          //"The sum is " é uma string, e qualquer coisa que concatenar(+) com ela (sum), automaticamente já será convertida em string
          // (PLAIN_MESSAGE) - deixa a mensagem plana - está em scream case, somente para leitura e não pode ser alterada
