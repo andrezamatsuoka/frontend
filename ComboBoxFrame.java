@@ -1,49 +1,50 @@
-// Fig. 12.21: ComboBoxFrame.java
-// JComboBox that displays a list of image names.
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 public class ComboBoxFrame extends JFrame 
 {
-   private final JComboBox<String> imagesJComboBox; // hold icon names
-   private final JLabel label; // displays selected icon
+   private final JComboBox<String> imagesJComboBox; // retem nomes de ícones
+   private final JLabel label; // exibe o ícone selecionado
 
    private static final String[] names = 
-      {"bug1.gif", "bug2.gif",  "travelbug.gif", "buganim.gif"};
+      {"bug1.gif", "bug2.gif",  "travelbug.gif", "buganim.gif", "icon-bug.png"};
    private final Icon[] icons = { 
       new ImageIcon(getClass().getResource(names[0])),
       new ImageIcon(getClass().getResource(names[1])), 
       new ImageIcon(getClass().getResource(names[2])),
-      new ImageIcon(getClass().getResource(names[3]))};
+      new ImageIcon(getClass().getResource(names[3])),
+      new ImageIcon(getClass().getResource(names[4]))};
 
-   // ComboBoxFrame constructor adds JComboBox to JFrame
+   // O construtor ComboBoxFrame adiciona JComboBox ao JFrame
    public ComboBoxFrame()
    {
       super("Testing JComboBox"); //título superior
       setLayout(new FlowLayout()); // definir o layout do quadro (FlowLayout é responsivo)
 
-      imagesJComboBox = new JComboBox<String>(names); // set up JComboBox
-      imagesJComboBox.setMaximumRowCount(3); // display three rows
+      imagesJComboBox = new JComboBox<String>(names); // configura o JComboBox
+      imagesJComboBox.setMaximumRowCount(2); // exibe duas linhas
 
       imagesJComboBox.addItemListener(
-         new ItemListener() // anonymous inner class
+         new ItemListener() // classe interna anônima
          {
-            // handle JComboBox event
+            // lida com evento JComboBox
             @Override
             public void itemStateChanged(ItemEvent event)
             {
-               // determine whether item selected
+               // determina se o item foi selecionado
                if (event.getStateChange() == ItemEvent.SELECTED)
                   label.setIcon(icons[
                      imagesJComboBox.getSelectedIndex()]);
             } 
-         } // end anonymous inner class
-      ); // end call to addItemListener
+         } // encerra classe interna anônima
+      ); //encerra chamada para addItemListener
 
-      add(imagesJComboBox); // add combobox to JFrame
-      label = new JLabel(icons[0]); // display first icon
-      add(label); // add label to JFrame
+      add(imagesJComboBox); // adiciona caixa de combinação ao JFrame
+      label = new JLabel(icons[0]); // exibe o primeiro ícone
+      add(label); // adiciona rótulo ao JFrame
+      setSize(350, 350); 
+      setVisible(true); 
    }
-} // end class ComboBoxFrame
+} // fim da classe ComboBoxFrame
 
